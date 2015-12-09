@@ -28,3 +28,9 @@ Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
 
 Recreate bin folder: `rake rails:update:bin`
+
+## Production
+
+Before running in production, check database status. For initialise the database in production use the following command:
+```heroku run rake db:migrate```
+
