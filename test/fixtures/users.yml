@@ -2,6 +2,7 @@ pablo:
   name: Pablo Torres
   email: pablo@torres.com
   password_digest: <%= User.digest('password') %>
+  admin: true
 
 kiki:
   name: Kiki Perez
