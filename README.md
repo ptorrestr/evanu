@@ -30,6 +30,12 @@ Please feel free to use a different markup language if you do not plan to run
 Recreate bin folder 
 ```rake rails:update:bin```
 
+Reset Database
+`bundle exec rake db:migrate:reset`
+
+Reseed Database
+`bundle exec rake db:seed`
+
 ## Production
 
 Before running in production, check database status. For initialise the database in production use the following command:
