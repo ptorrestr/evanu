@@ -6,6 +6,14 @@ pablo:
   activated: true
   activated_at: <%= Time.zone.now %>
 
+gloria:
+  name: Gloria Tramon
+  email: gloria@tramon.com
+  password_digest: <%= User.digest('password') %>
+  nutritionist: true
+  activated: true
+  activated_at: <%= Time.zone.now %> 
+
 kiki:
   name: Kiki Perez
   email: kiki@perez.com

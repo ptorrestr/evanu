@@ -1,10 +1,17 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
-  before_action :admin_user, only: :destroy
+  before_action :admin_user, only: [:destroy]
 
   def index
-    @users = User.where(activated: true).paginate(page: params[:page])
+    @user = current_user 
+    if @user.admin
+      @users = User.where(activated: true).paginate(page: params[:page])
+    elsif @user.nutritionist
+      @users = User.where(activated: true).where(admin: false).where(nutritionist: false).paginate(page: params[:page])
+    else
+      @users = User.where(activated: true).paginate(page: params[:page])
+    end
   end
 
   def show
@@ -71,5 +78,10 @@ class UsersController < ApplicationController
     # Confirms an admin user.
     def admin_user
       redirect_to(root_path) unless current_user.admin?
+    end
+
+    # Confirms a nutritionist user.
+    def nutritionist_user
+      redirect_to(root_path) unless current_user.nutritionist?
     end
 end
