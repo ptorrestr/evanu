@@ -4,14 +4,7 @@ class UsersController < ApplicationController
   before_action :admin_user, only: [:destroy]
 
   def index
-    @user = current_user 
-    if @user.admin
-      @users = User.where(activated: true).paginate(page: params[:page])
-    elsif @user.nutritionist
-      @users = User.where(activated: true).where(admin: false).where(nutritionist: false).paginate(page: params[:page])
-    else
-      @users = User.where(activated: true).paginate(page: params[:page])
-    end
+    @users = User.where(activated: true).paginate(page: params[:page])
   end
 
   def show
@@ -54,8 +47,8 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :password,
-				   :password_confirmation)
+      # Check what happend with other roles
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :roles)
     end
 
     # Before filters
@@ -77,11 +70,7 @@ class UsersController < ApplicationController
 
     # Confirms an admin user.
     def admin_user
-      redirect_to(root_path) unless current_user.admin?
+      redirect_to(root_path) unless current_user.has_role? :admin
     end
 
-    # Confirms a nutritionist user.
-    def nutritionist_user
-      redirect_to(root_path) unless current_user.nutritionist?
-    end
 end

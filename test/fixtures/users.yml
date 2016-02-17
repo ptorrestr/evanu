@@ -2,17 +2,19 @@ pablo:
   name: Pablo Torres
   email: pablo@torres.com
   password_digest: <%= User.digest('password') %>
-  admin: true
   activated: true
   activated_at: <%= Time.zone.now %>
+  roles:
+    - admin
 
 gloria:
   name: Gloria Tramon
   email: gloria@tramon.com
   password_digest: <%= User.digest('password') %>
-  nutritionist: true
   activated: true
   activated_at: <%= Time.zone.now %> 
+  roles:
+    - nutritionist
 
 kiki:
   name: Kiki Perez
@@ -20,6 +22,8 @@ kiki:
   password_digest: <%= User.digest('password') %>
   activated: true
   activated_at: <%= Time.zone.now %>
+  roles:
+    - default
 
 lana:
   name: Lana Kane
@@ -27,6 +31,8 @@ lana:
   password_digest: <%= User.digest('password') %>
   activated: true
   activated_at: <%= Time.zone.now %>
+  roles:
+    - default
 
 malory:
   name: Malory Archer
@@ -34,6 +40,8 @@ malory:
   password_digest: <%= User.digest('password') %>
   activated: true
   activated_at: <%= Time.zone.now %>
+  roles:
+    - default
 
 <% 30.times do |n| %>
 user_<%= n %>:
@@ -42,4 +50,6 @@ user_<%= n %>:
   password_digest: <%= User.digest('password') %>
   activated: true
   activated_at: <%= Time.zone.now %>
+  roles:
+    - default
 <% end %>
