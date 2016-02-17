@@ -22,7 +22,7 @@ class UsersCreateTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "no permission for creation of nutritionist user" do
+  test "no permission for creating a nutritionist user" do
     log_in_as(@nutritionist)
     get new_user_path
     assert_no_difference 'User.count' do
