@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    authorize :creation, :create?
     @user = User.new(user_params)
     if @user.save
       @user.send_activation_email
@@ -47,7 +48,6 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      # Check what happend with other roles
       params.require(:user).permit(:name, :email, :password, :password_confirmation, :roles)
     end
 

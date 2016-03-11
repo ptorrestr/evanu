@@ -9,6 +9,18 @@ class UsersCreateTest < ActionDispatch::IntegrationTest
     @normal = users(:kiki)
   end
 
+  test "annonymous user attempt to create a user" do
+    get new_user_path
+    assert_no_difference 'User.count' do
+      post users_path, user: { name: "",
+			       email: "user@invalid",
+			       password: "foobar",
+			       password_confirmation: "foobar",
+			       roles: [roles(:default)] }
+    end
+    assert_not flash.empty?
+  end
+
   test "invalid creation of nutritionist user" do
     log_in_as(@admin)
     get new_user_path
@@ -27,12 +39,12 @@ class UsersCreateTest < ActionDispatch::IntegrationTest
     get new_user_path
     assert_no_difference 'User.count' do
       post users_path, user: { name: "as",
-                               email: "user@valid.com",
+                               email: "user@invalid.com",
                                password: "foobar",
                                password_confirmation: "foobar",
 			       roles: [roles(:nutritionist)] }
-      assert_template 'users/new'
     end
+    assert_not flash.empty?
   end
 
 #  test "valid signup information with account activation" do
