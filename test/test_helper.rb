@@ -24,6 +24,15 @@ class ActiveSupport::TestCase
     end
   end
 
+  # Logs out a test user.
+  def log_out
+    if integration_test?
+      delete logout_path
+    else
+      session[:user_id] = nil
+    end
+  end
+
   private
   
     # Returns true inside an integration test.

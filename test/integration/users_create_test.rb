@@ -21,7 +21,7 @@ class UsersCreateTest < ActionDispatch::IntegrationTest
     assert_not flash.empty?
   end
 
-  test "invalid creation of nutritionist user" do
+  test "invalid creation of an user" do
     log_in_as(@admin)
     get new_user_path
     assert_no_difference 'User.count' do
@@ -34,7 +34,7 @@ class UsersCreateTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "no permission for creating a nutritionist user" do
+  test "no permission for creating an user" do
     log_in_as(@nutritionist)
     get new_user_path
     assert_no_difference 'User.count' do
@@ -47,31 +47,34 @@ class UsersCreateTest < ActionDispatch::IntegrationTest
     assert_not flash.empty?
   end
 
-#  test "valid signup information with account activation" do
-#    get signup_path
-#    assert_difference 'User.count', 1 do
-#      post users_path, user: { name: "Example User",
-#		               email: "user@example.com",
-#			       password: "password",
-#			       password_confirmation: "password"}
-#    end
-#    assert_equal 1, ActionMailer::Base.deliveries.size
-#    user = assigns(:user)
-#    assert_not user.activated?
-#    # Try to log in before activation.
-#    log_in_as(user)
-#    assert_not is_logged_in?
-#    # Invalid activation token
-#    get edit_account_activation_path("invalid_token")
-#    assert_not is_logged_in?
-#    # valid token, wrong email
-#    get edit_account_activation_path(user.activation_token, email: 'wrong')
-#    assert_not is_logged_in?
-#    # valid activation token
-#    get edit_account_activation_path(user.activation_token, email: user.email)
-#    assert user.reload.activated?
-#    follow_redirect!
-#    assert_template 'users/show'
-#    assert is_logged_in?
-#  end
+  test "valid creation for an user and its activation" do
+    log_in_as(@admin)
+    assert_difference 'User.count', 1 do
+      post users_path, user: { name: "Example User",
+		               email: "user@example.com",
+			       password: "password",
+			       password_confirmation: "password",
+                               roles: [roles(:nutritionist)] }
+    end
+    assert_equal 1, ActionMailer::Base.deliveries.size
+    user = assigns(:user)
+    assert_not user.activated?
+    # log out admin
+    log_out
+    # Try to log new user in before activation.
+    log_in_as(user)
+    assert_not is_logged_in?
+    # Invalid activation token
+    get edit_account_activation_path("invalid_token")
+    assert_not is_logged_in?
+    # valid token, wrong email
+    get edit_account_activation_path(user.activation_token, email: 'wrong')
+    assert_not is_logged_in?
+    # valid activation token
+    get edit_account_activation_path(user.activation_token, email: user.email)
+    assert user.reload.activated?
+    follow_redirect!
+    assert_template 'users/show'
+    assert is_logged_in?
+  end
 end
