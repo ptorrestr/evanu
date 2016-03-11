@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+tarapaca:
+  name: "Tarapacá"
+  country: chile
+antofagasta:
+  name: "Antofagasta"
+  country: chile
+atacama:
+  name: "Atacama"
+  country: chile
+coquimbo:
+  name: "Coquimbo"                                                                        
+  country: chile
+valparaiso:
+  name: "Valparaíso"
+  country: chile
+ohiggins:
+  name: "Región del Libertador Gral. Bernardo O'Higgins"
+  country: chile
+maule:
+  name: "Región del Maule"
+  country: chile
+biobio:
+  name: "Región del Biobío"
+  country: chile

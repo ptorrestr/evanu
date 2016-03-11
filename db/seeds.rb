@@ -42,3 +42,23 @@ end
 	       activated_at: Time.zone.now,
                roles: [Role.find(3)])
 end
+
+# Locations
+## country
+Country.create!(name: "Chile")
+## state
+State.create!(name: "Tarapacá", country: Country.find(1))
+State.create!(name: "Antofagasta", country: Country.find(1))
+State.create!(name: "Atacama", country: Country.find(1))
+State.create!(name: "Coquimbo", country: Country.find(1))
+State.create!(name: "Valparaíso", country: Country.find(1))
+State.create!(name: "Región del Libertador Gral. Bernardo O'Higgins", country: Country.find(1))
+State.create!(name: "Región del Maule", country: Country.find(1))
+State.create!(name: "Región del Biobío", country: Country.find(1))
+State.create!(name: "Región de la Araucanía", country: Country.find(1))
+State.create!(name: "Región de Los Lagos", country: Country.find(1))
+State.create!(name: "Región Aisén del Gral. Carlos Ibáñez del Campo", country: Country.find(1))
+State.create!(name: "Región de Magallanes y de la Antártica Chilena", country: Country.find(1))
+State.create!(name: "Región Metropolitana de Santiago", country: Country.find(1))
+State.create!(name: "Región de Los Ríos", country: Country.find(1))
+State.create!(name: "Arica y Parinacota", country: Country.find(1))
