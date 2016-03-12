@@ -1,11 +1,29 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  phone: MyString
-  city_id: 
+  name: Estrellita
+  phone: 123123
+  city: santiagocentro
+  user: pablo
 
 two:
-  name: MyString
-  phone: MyString
-  city_id: 
+  name: Estrellita2
+  phone: 123123
+  city: santiagocentro
+  user: pablo
+
+<% 30.times do |n| %>
+kindergarden_<%= n %>:
+  name:  <%= "Kinder garden #{n}" %>
+  phone: "123123"
+  city: santiagocentro
+  user: gloria
+<% end %>
+
+<% 30.times do |n| %>
+kindergarden_2<%= n %>:
+  name: <%= "Kinder garden 2#{n}" %>
+  phone: "123123"
+  city: santiagocentro
+  user: kiki
+<% end %>

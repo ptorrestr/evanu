@@ -10,8 +10,14 @@ module PunditHelper
 
     private
     def user_not_authorized
-      flash[:danger] = "Access denied."
-      redirect_to ( root_path )
+      if logged_in?
+        flash[:danger] = "You don't have permission for this action"
+        redirect_to root_path
+      else
+        store_location
+        flash[:danger] = "Please log in"
+        redirect_to login_path
+      end
     end
   end
 

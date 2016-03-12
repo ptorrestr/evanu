@@ -25,24 +25,6 @@ kiki:
   roles:
     - default
 
-lana:
-  name: Lana Kane
-  email: hands@example.gov
-  password_digest: <%= User.digest('password') %>
-  activated: true
-  activated_at: <%= Time.zone.now %>
-  roles:
-    - default
-
-malory:
-  name: Malory Archer
-  email: boss@example.gov
-  password_digest: <%= User.digest('password') %>
-  activated: true
-  activated_at: <%= Time.zone.now %>
-  roles:
-    - default
-
 <% 30.times do |n| %>
 user_<%= n %>:
   name:  <%= "User #{n}" %>

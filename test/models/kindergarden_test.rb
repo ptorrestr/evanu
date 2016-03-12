@@ -2,8 +2,9 @@ require 'test_helper'
 
 class KindergardenTest < ActiveSupport::TestCase
   def setup
+    @admin = users(:pablo)
     @santiago = cities(:santiagocentro)
-    @garden = Kindergarden.new(name: "Estrellita", phone: "898989", city: @santiago)
+    @garden = Kindergarden.new(name: "Estrellita", phone: "898989", city: @santiago, user: @admin)
   end
 
   test "should be valid" do
@@ -22,6 +23,11 @@ class KindergardenTest < ActiveSupport::TestCase
  
   test "city should be present" do
     @garden.city = nil
+    assert_not @garden.valid?
+  end
+
+  test "user should be present" do
+    @garden.user = nil
     assert_not @garden.valid?
   end
 end

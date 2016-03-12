@@ -1,7 +1,8 @@
 class KindergardensController < ApplicationController
 
   def index
-    @kindergardens = Kindergarden.all.paginate(page: params[:page])
+    authorize Kindergarden
+    @kindergardens = policy_scope(Kindergarden).paginate(page: params[:page])
   end
 
   def show
@@ -13,10 +14,12 @@ class KindergardensController < ApplicationController
   end
 
   def create
-    @kindergarden = Kindergarden.new(kindergarden_params)
+    authorize Kindergarden
+    user = {'user' => current_user }
+    @kindergarden = Kindergarden.new(kindergarden_params.merge(user))
     if @kindergarden.save
       flash[:success] = "Kindergarden created"
-      redirect_to root_path
+      redirect_to kindergardens_path
     else
       render 'new'
     end
