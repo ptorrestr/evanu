@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  county_id: 
-
-two:
-  name: MyString
-  county_id: 
+sanmiguel:
+  name: "San Miguel"
+  county: santiago
+santiagocentro:
+  name: "Santiago centro"
+  county: santiago
+sanjoaquin:
+  name: "San Joaquín"
+  county: santiago

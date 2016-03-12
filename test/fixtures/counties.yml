@@ -1,9 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  name: MyString
-  state_id: 
-
-two:
-  name: MyString
-  state_id: 
+santiago:
+  name: "Santiago"
+  state: metropolitana
+cordillera:
+  name: "Cordillera"
+  state: metropolitana
+maipo:
+  name: "Maipo"
+  state: metropolitana

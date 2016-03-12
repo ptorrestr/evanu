@@ -1,0 +1,51 @@
+<% provide(:title, 'New kindergarden') %>
+<h1>New kindergarden</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@kindergarden) do |f| %>
+      <%= render 'shared/error_kindergarden' %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :phone %>
+      <%= f.text_field :phone, class: 'form-control' %>
+
+      <%= label :country, :country %>
+      <%= select_tag :country_id, 
+          options_from_collection_for_select(Country.all, "id", "name"),
+          :prompt => "Select a country" %>
+
+      <%= label :state, :state %>
+      <%= select_tag :state_id,
+          options_from_collection_for_select([], "id", "name"),
+          "data-option-dependent" => true,
+          "data-option-observed" => :country_id,
+          "data-option-url" => "/countries/:country_id:/states.json",
+          "data-option-key-method" => :id,
+          "data-option-value-method" => :name %>
+
+      <%= label :county, :county %>
+      <%= select_tag :county_id,
+          options_from_collection_for_select([], "id", "name"),
+          "data-option-dependent" => true,
+          "data-option-observed" => :state_id,
+          "data-option-url" => "/states/:state_id:/counties.json",
+          "data-option-key-method" => :id,
+          "data-option-value-method" => :name %>
+
+      <%= f.label :city %>
+      <%= select_tag :kindergarden_city_id, #link to form
+          options_from_collection_for_select([], "id", "name"), 
+          "name" => "kindergarden[city_id]", #we need to link to form
+          "data-option-dependent" => true,
+          "data-option-observed" => :county_id,
+          "data-option-url" => "/counties/:county_id:/cities.json",
+          "data-option-key-method" => :id,
+          "data-option-value-method" => :name %>
+
+      <%= f.submit "Create new kindergarden", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
