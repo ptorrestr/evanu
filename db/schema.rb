@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311151316) do
+ActiveRecord::Schema.define(version: 20160311230600) do
+
+  create_table "cities", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "state_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "cities", ["state_id"], name: "index_cities_on_state_id"
+
+  create_table "counties", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "state_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "counties", ["state_id"], name: "index_counties_on_state_id"
 
   create_table "countries", force: :cascade do |t|
     t.string   "name"
