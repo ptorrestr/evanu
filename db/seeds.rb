@@ -433,19 +433,22 @@ r2 = Role.create!(name: "nutritionist")
 r3 = Role.create!(name: "default")
 
 1.times do |n|
-  user = User.create!(name: "Example User",
-             email: "example@railstutorial.org",
-             password: "foobar",
-             password_confirmation: "foobar",
+	name = Faker::Name.name
+	email = "admin@example.com"
+	password = "foobar"
+	user = User.create!(name: name,
+             email: email,
+             password: password,
+             password_confirmation: password,
              activated: true,
              activated_at: Time.zone.now,
              roles: [r1])
 end
 
-10.times do |n|
+1.times do |n|
   name = Faker::Name.name
   email = "nutritionist-#{n+1}@example.com"
-  password = "password"
+  password = "foobar"
   user = User.create!(name: name,
                email: email,
                password: password,
