@@ -488,3 +488,13 @@ end
 end
 
 ## Kindergarden Food Categories
+1.times do |n|
+	name1 = "Snack"
+	name2 = "Dessert"
+	name3 = "Poultry"
+	name4 = "Beef"
+	name5 = "Fish"
+	name6 = "Other"
+	name7 = "Salad"
+	name8 = "Mashed Vegetables"
+end
