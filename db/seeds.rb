@@ -478,3 +478,13 @@ end
                activated_at: Time.zone.now,
                roles: [r3])
 end
+
+## Kindergarden Levels
+1.times do |n|
+	name1 = "High Nursery"
+	name2 = "Low Middle Level"
+	Level.create!(name: name1)
+	Level.create!(name: name2)
+end
+
+## Kindergarden Food Categories
