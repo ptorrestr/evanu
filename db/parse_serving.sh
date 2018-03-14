@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cat once-medio-menor.csv | awk -F "," '
+awk -F "," '
 BEGIN{
 	currrent_key = ""
 }
@@ -33,4 +33,4 @@ BEGIN{
 			current_key = ""
 		}
 	}
-}' | sort -u  
+}'  
