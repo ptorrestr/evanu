@@ -5,6 +5,8 @@ cat ./alimentos.csv | awk -F "," '
 	id = $1
 	gsub(/[[:space:]]/,"_", id)
   gsub(/\//,"_", id)
+	gsub(/%/,"_", id)
+	gsub(/\./,"_", id)
 	gsub(/á/,"a", id)
 	gsub(/é/,"e", id)
 	gsub(/í/,"i", id)
