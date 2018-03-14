@@ -1,6 +1,7 @@
 Food.create!(name:"Aceite",proteins:0.0,carbohydrates:0.0,fibre:0.0,lipids:99.7,saturated_fat:0,price:150.0)
 Food.create!(name:"Aceitunas",proteins:1.4,carbohydrates:1.3,fibre:2.6,lipids:16.2,saturated_fat:0,price:0.0)
 Food.create!(name:"Acelga",proteins:1.3,carbohydrates:5.1,fibre:1.0,lipids:0.4,saturated_fat:0,price:100.0)
+Food.create!(name:"Agua",proteins:0,carbohydrates:0,fibre:0,lipids:0,saturated_fat:0,price:0)
 Food.create!(name:"Ajo",proteins:6.4,carbohydrates:33.1,fibre:1.7,lipids:0.1,saturated_fat:0,price:0.0)
 Food.create!(name:"Albahaca",proteins:0.0,carbohydrates:0.0,fibre:0.0,lipids:0.0,saturated_fat:0,price:0.0)
 Food.create!(name:"Alcachofa",proteins:1.5,carbohydrates:11.9,fibre:0.8,lipids:0.4,saturated_fat:0,price:0.0)
