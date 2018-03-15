@@ -27,7 +27,11 @@ BEGIN{
 				weight = $3
 				gsub(/\./,"_", weight)
 				if ( $3 != "" && $4 != "" ) {
-					print id"_"weight $4" = Serving.create!(net_weight:"$3", unit:\""$4"\", food:"id")"
+					uni = $4
+					if ( uni == "ml" ) {
+						uni = "cc"
+					}
+					print id"_"weight uni" = Serving.create!(net_weight:"$3", unit:\""uni"\", food:"id")"
 				}
 			}
 		} else {
