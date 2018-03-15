@@ -6,6 +6,7 @@ BEGIN{
 }
 {
 	id = $1
+	gsub(/[ \t]+$/, "", id)
 	gsub(/[[:space:]]/,"_", id)
 	gsub(/\//,"_", id)
 	gsub(/\./,"_", id)

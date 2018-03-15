@@ -3,6 +3,7 @@
 cat ./alimentos.csv | awk -F "," '
 {if (substr($0,1,1) !~ /^#/) {
 	id = $1
+	gsub(/[ \t]$/, "", id)
 	gsub(/[[:space:]]/,"_", id)
   gsub(/\//,"_", id)
 	gsub(/%/,"_", id)
