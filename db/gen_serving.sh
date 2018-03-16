@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-cat once-medio-menor.csv once-prekinder.csv \
-	postre-medio-menor.csv postre-prekinder.csv \
-	pollo-medio-menor.csv pollo-prekinder.csv \
-	vacuno-medio-menor.csv vacuno-prekinder.csv \
-	pescado-medio-menor.csv pescado-prekinder.csv \
-	plato-fondo-medio-menor.csv plato-fondo-prekinder.csv \
-	ensalada-medio-menor.csv ensalada-prekinder.csv \
+cat serving-once-mediomenor.csv serving-once-prekinder.csv \
+	serving-postre-mediomenor.csv serving-postre-prekinder.csv \
+	serving-pollo-mediomenor.csv serving-pollo-prekinder.csv \
+	serving-vacuno-mediomenor.csv serving-vacuno-prekinder.csv \
+	serving-pescado-mediomenor.csv serving-pescado-prekinder.csv \
+	serving-platofondo-mediomenor.csv serving-platofondo-prekinder.csv \
+	serving-ensalada-mediomenor.csv serving-ensalada-prekinder.csv \
 	| ./parse_serving.sh \
 	| sort -u

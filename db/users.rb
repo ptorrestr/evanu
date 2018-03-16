@@ -50,21 +50,15 @@ end
 end
 
 ## Kindergarden Levels
-1.times do |n|
-	name1 = "High Nursery"
-	name2 = "Low Middle Level"
-	Level.create!(name: name1)
-	Level.create!(name: name2)
-end
+lowmiddlelevel = Level.crate!(name: "Low middle level")
+prekinder = Level.create!(name: "Prekinder")
 
 ## Kindergarden Food Categories
-1.times do |n|
-	name1 = "Snack"
-	name2 = "Dessert"
-	name3 = "Poultry"
-	name4 = "Beef"
-	name5 = "Fish"
-	name6 = "Other"
-	name7 = "Salad"
-	name8 = "Mashed Vegetables"
-end
+snack = Category.create!(name: "Snack")
+dessert = Category.create!(name: "Dessert")
+poultry = Category.create!(name: "Poultry")
+beef = Category.create!(name: "Beef")
+fish = Category.create!(name: "Fish")
+other = Category.create!(name: "Other")
+salad = Category.create!(name: "Salad")
+mashed = Category.create!(name: "Mashed Vegetables")
