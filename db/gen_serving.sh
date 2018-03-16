@@ -6,5 +6,6 @@ cat once-medio-menor.csv once-prekinder.csv \
 	vacuno-medio-menor.csv vacuno-prekinder.csv \
 	pescado-medio-menor.csv pescado-prekinder.csv \
 	plato-fondo-medio-menor.csv plato-fondo-prekinder.csv \
+	ensalada-medio-menor.csv ensalada-prekinder.csv \
 	| ./parse_serving.sh \
 	| sort -u

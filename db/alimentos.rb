@@ -105,6 +105,7 @@ miel = Food.create!(name:"Miel",proteins:0.3,carbohydrates:79.1,fibre:0.0,lipids
 naranja = Food.create!(name:"Naranja",proteins:0.7,carbohydrates:8.7,fibre:0.5,lipids:0.3,saturated_fat:0,price:40.0)
 nestun = Food.create!(name:"Nestún",proteins:6.0,carbohydrates:85.0,fibre:1.6,lipids:0.6,saturated_fat:0)
 nuez = Food.create!(name:"Nuez",proteins:14.5,carbohydrates:11.1,fibre:5.9,lipids:63.8,saturated_fat:0)
+oregano = Food.create!(name:"Oregano",proteins:0,carbohydrates:0,fibre:0,lipids:0,saturated_fat:0)
 palta = Food.create!(name:"Palta",proteins:1.3,carbohydrates:5.5,fibre:1.4,lipids:18.6,saturated_fat:0,price:350.0)
 pan = Food.create!(name:"Pan ",proteins:6.4,carbohydrates:60.0,fibre:0.6,lipids:0.7,saturated_fat:0,price:120.0)
 pan_integral = Food.create!(name:"Pan integral",proteins:11.0,carbohydrates:47.0,fibre:1.9,lipids:2.0,saturated_fat:0,price:140.0)
