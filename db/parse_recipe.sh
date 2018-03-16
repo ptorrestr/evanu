@@ -61,7 +61,11 @@ BEGIN{
 {
 	id = $1
 	name = $1
+  gsub(/[ \t]+$/, "", name)
+	gsub(/^[ \t]+/, "", name)
+
 	gsub(/[ \t]+$/, "", id)
+	gsub(/^[ \t]+/, "", id)
 	gsub(/[[:space:]]/,"_", id)
 	gsub(/\//,"_", id)
 	gsub(/\./,"_2", id)
