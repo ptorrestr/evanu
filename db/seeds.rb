@@ -479,24 +479,18 @@ end
 end
 
 ## Kindergarden Levels
-1.times do |n|
-	name1 = "High Nursery"
-	name2 = "Low Middle Level"
-	Level.create!(name: name1)
-	Level.create!(name: name2)
-end
+lowmiddlelevel = Level.create!(name: "Low middle level")
+prekinder = Level.create!(name: "Prekinder")
 
 ## Kindergarden Food Categories
-1.times do |n|
-	name1 = "Snack"
-	name2 = "Dessert"
-	name3 = "Poultry"
-	name4 = "Beef"
-	name5 = "Fish"
-	name6 = "Other"
-	name7 = "Salad"
-	name8 = "Mashed Vegetables"
-end
+snack = Category.create!(name: "Snack")
+dessert = Category.create!(name: "Dessert")
+poultry = Category.create!(name: "Poultry")
+beef = Category.create!(name: "Beef")
+fish = Category.create!(name: "Fish")
+other = Category.create!(name: "Other")
+salad = Category.create!(name: "Salad")
+mashed = Category.create!(name: "Mashed Vegetables")
 aceite = Food.create!(name:"Aceite",proteins:0.0,carbohydrates:0.0,fibre:0.0,lipids:99.7,saturated_fat:0,price:150.0)
 aceitunas = Food.create!(name:"Aceitunas",proteins:1.4,carbohydrates:1.3,fibre:2.6,lipids:16.2,saturated_fat:0,price:0.0)
 acelga = Food.create!(name:"Acelga",proteins:1.3,carbohydrates:5.1,fibre:1.0,lipids:0.4,saturated_fat:0,price:100.0)

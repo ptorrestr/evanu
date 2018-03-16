@@ -50,7 +50,7 @@ end
 end
 
 ## Kindergarden Levels
-lowmiddlelevel = Level.crate!(name: "Low middle level")
+lowmiddlelevel = Level.create!(name: "Low middle level")
 prekinder = Level.create!(name: "Prekinder")
 
 ## Kindergarden Food Categories
