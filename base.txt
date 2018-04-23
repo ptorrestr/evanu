@@ -1,0 +1,31 @@
+rails generate model food \
+	name:string \
+	proteins:decimal \
+	carbohydrates:decimal \
+	fibre:decimal \
+	lipids:decimal \
+	saturated_fat:decimal \
+	price:decimal \
+	user_id:references
+	
+rails generate model serving \
+	net_weight:integer \
+	gross_weight:integer \
+	unit:string \
+	food_id:references
+	
+rails generate model recipe \
+	name:string \
+	instructions:string \
+	level:references \
+	category:references
+	
+rails generate model recipe_serving \
+	serving_id \
+	recipe_id
+	
+rails generate model level \
+	name:string 
+	
+rails generate model category \
+	name:string
